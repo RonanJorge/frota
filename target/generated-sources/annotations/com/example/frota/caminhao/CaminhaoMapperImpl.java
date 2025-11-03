@@ -6,8 +6,8 @@ import org.springframework.stereotype.Component;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2025-10-03T22:21:35-0300",
-    comments = "version: 1.5.5.Final, compiler: Eclipse JDT (IDE) 3.41.0.v20250213-1140, environment: Java 21.0.6 (Eclipse Adoptium)"
+    date = "2025-11-03T03:16:43-0300",
+    comments = "version: 1.5.5.Final, compiler: javac, environment: Java 17.0.6 (Eclipse Adoptium)"
 )
 @Component
 public class CaminhaoMapperImpl implements CaminhaoMapper {
@@ -24,6 +24,10 @@ public class CaminhaoMapperImpl implements CaminhaoMapper {
         String placa = null;
         Integer ano = null;
         Double cargaMaxima = null;
+        Double comprimento = null;
+        Double largura = null;
+        Double altura = null;
+        Double fatorCubagem = null;
 
         marcaId = caminhaoMarcaId( caminhao );
         id = caminhao.getId();
@@ -31,8 +35,12 @@ public class CaminhaoMapperImpl implements CaminhaoMapper {
         placa = caminhao.getPlaca();
         ano = caminhao.getAno();
         cargaMaxima = caminhao.getCargaMaxima();
+        comprimento = caminhao.getComprimento();
+        largura = caminhao.getLargura();
+        altura = caminhao.getAltura();
+        fatorCubagem = caminhao.getFatorCubagem();
 
-        AtualizacaoCaminhao atualizacaoCaminhao = new AtualizacaoCaminhao( id, modelo, placa, ano, cargaMaxima, marcaId );
+        AtualizacaoCaminhao atualizacaoCaminhao = new AtualizacaoCaminhao( id, modelo, placa, ano, cargaMaxima, marcaId, comprimento, largura, altura, fatorCubagem );
 
         return atualizacaoCaminhao;
     }
@@ -46,14 +54,26 @@ public class CaminhaoMapperImpl implements CaminhaoMapper {
         Caminhao caminhao = new Caminhao();
 
         caminhao.setMarca( idToMarca( dto.marcaId() ) );
-        if ( dto.ano() != null ) {
-            caminhao.setAno( dto.ano() );
-        }
+        caminhao.setModelo( dto.modelo() );
+        caminhao.setPlaca( dto.placa() );
         if ( dto.cargaMaxima() != null ) {
             caminhao.setCargaMaxima( dto.cargaMaxima() );
         }
-        caminhao.setModelo( dto.modelo() );
-        caminhao.setPlaca( dto.placa() );
+        if ( dto.ano() != null ) {
+            caminhao.setAno( dto.ano() );
+        }
+        if ( dto.comprimento() != null ) {
+            caminhao.setComprimento( dto.comprimento() );
+        }
+        if ( dto.largura() != null ) {
+            caminhao.setLargura( dto.largura() );
+        }
+        if ( dto.altura() != null ) {
+            caminhao.setAltura( dto.altura() );
+        }
+        if ( dto.fatorCubagem() != null ) {
+            caminhao.setFatorCubagem( dto.fatorCubagem() );
+        }
 
         return caminhao;
     }
@@ -65,14 +85,26 @@ public class CaminhaoMapperImpl implements CaminhaoMapper {
         }
 
         caminhao.setMarca( idToMarca( dto.marcaId() ) );
-        if ( dto.ano() != null ) {
-            caminhao.setAno( dto.ano() );
-        }
+        caminhao.setModelo( dto.modelo() );
+        caminhao.setPlaca( dto.placa() );
         if ( dto.cargaMaxima() != null ) {
             caminhao.setCargaMaxima( dto.cargaMaxima() );
         }
-        caminhao.setModelo( dto.modelo() );
-        caminhao.setPlaca( dto.placa() );
+        if ( dto.ano() != null ) {
+            caminhao.setAno( dto.ano() );
+        }
+        if ( dto.comprimento() != null ) {
+            caminhao.setComprimento( dto.comprimento() );
+        }
+        if ( dto.largura() != null ) {
+            caminhao.setLargura( dto.largura() );
+        }
+        if ( dto.altura() != null ) {
+            caminhao.setAltura( dto.altura() );
+        }
+        if ( dto.fatorCubagem() != null ) {
+            caminhao.setFatorCubagem( dto.fatorCubagem() );
+        }
     }
 
     private Long caminhaoMarcaId(Caminhao caminhao) {

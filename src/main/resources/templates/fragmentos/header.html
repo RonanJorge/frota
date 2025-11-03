@@ -1,8 +1,9 @@
 <!-- templates/fragmentos/header.html -->
+
 <header th:fragment="header(activePage)">
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container-fluid">
-			<a class="navbar-brand" href="#"> <i class="fas fa-truck me-2"></i>FrotaLux </a>
+			<a class="navbar-brand" href="#"> <i class="fas fa-truck me-2"></i>FrotaCaJuLuRo </a>
 
 
 			<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
@@ -18,23 +19,36 @@
 						th:href="@{/home/dashboard}"> <i class="fas fa-home me-1"></i>
 							Início
 					</a></li>
-
+					
+					
+					<li class="nav-item"><a class="nav-link"
+						th:classappend="${activePage == 'caminhao'} ? 'active' : ''"
+						th:href="@{/caminhao}"> <i class="fas fa-truck me-1"></i>
+							Caminhao
+					</a></li>
+					
+					<li class="nav-item"><a class="nav-link"
+						th:classappend="${activePage == 'marca'} ? 'active' : ''"
+						th:href="@{/marca}"> <i class="fas fa-star me-1"></i>
+							Marca
+					</a></li>
+					
 					<!-- Dropdown de Marcas -->
 					<li class="nav-item dropdown">
-						<a class="nav-link dropdown-toggle" id="filmesDropdown"
-						role="button" data-bs-toggle="dropdown" aria-expanded="false"
-						th:classappend="${activePage == '' || activePage == 'caminhao'} ? 'active' : ''"
-						style="cursor: pointer;"> <i class="fas fa-film me-1"></i>
-							caminhao
+						<a class="nav-link dropdown-toggle" id="marcaDropdown"
+						role="button" data-bs-toggle="dropdown" aria-expanded="true"
+						th:classappend="${activePage == '' || activePage == 'marca'} ? 'active' : ''"
+						style="cursor: pointer;"> <i class="fas fa-star me-1"></i>
+							Marcas
 						</a>
-						<ul class="dropdown-menu" aria-labelledby="filmesDropdown">
+						<ul class="dropdown-menu" aria-labelledby="marcaDropdown">
 							<li><a class="dropdown-item"
-								th:classappend="${activePage == 'caminhao'} ? 'active' : ''"
-								th:href="@{/caminhao}"> <i class="fas fa-list me-1"></i> Listagem Caminhao</a>
+								th:classappend="${activePage == 'marca'} ? 'active' : ''"
+								th:href="@{/marca}"> <i class="fas fa-list me-1"></i> Listagem Marcas</a>
 							</li>
 							<li><a class="dropdown-item"
-								th:classappend="${activePage == 'caminhao'} ? 'active' : ''"
-								th:href="@{/caminhao/formulario}"> <i class="fas fa-star me-1"></i> Cadastrar Caminhao
+								th:classappend="${activePage == 'marca'} ? 'active' : ''"
+								th:href="@{/marca/formulario}"> <i class="fas fa-star me-1"></i> Cadastrar Marca
 							</a></li>
 						</ul>
 					</li>
@@ -63,3 +77,4 @@
         </div>
     </nav>
 </header>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>

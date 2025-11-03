@@ -3,7 +3,7 @@
 <head th:replace="~{fragmentos/head :: head('Manter Caminhão')}"></head>
 <body>
 	<header
-		th:replace="~{fragmentos/header :: header(activePage='Caminhao')}"></header>
+		th:replace="~{fragmentos/header :: header(activePage='caminhao')}"></header>
 	<div class="container-fluid" style="max-width: 900px; margin: 0 auto;">
 		<h2 class="text-center"
 			th:text="(${caminhao != null} ? 'Editar Caminhão' : 'Novo Caminhão')"></h2>
@@ -53,17 +53,45 @@
                 <div th:errors="*{ano}" class="invalid-feedback"></div>
 			</div>
 			<div class="form-group">
-				<label for="placa"> Carga Maxima: </label> <input
+				<label for="cargaMaxima"> Carga Maxima: </label> <input
 					class="form-control" type="number"
 					th:field="*{cargaMaxima}"
 					th:classappend="${#fields.hasErrors('cargaMaxima')} ? 'is-invalid'">
                 <div th:errors="*{cargaMaxima}" class="invalid-feedback"></div>
 			</div>
+			<div class="form-group">
+				<label for="comprimento"> Comprimento: </label> <input
+					class="form-control" type="number"
+					th:field="*{comprimento}"
+					th:classappend="${#fields.hasErrors('comprimento')} ? 'is-invalid'">
+                <div th:errors="*{comprimento}" class="invalid-feedback"></div>
+			</div>
+			<div class="form-group">
+				<label for="largura"> Largura: </label> <input
+					class="form-control" type="number"
+					th:field="*{largura}"
+					th:classappend="${#fields.hasErrors('largura')} ? 'is-invalid'">
+                <div th:errors="*{largura}" class="invalid-feedback"></div>
+			</div>
+			<div class="form-group">
+				<label for="altura"> Altura: </label> <input
+					class="form-control" type="number"
+					th:field="*{altura}"
+					th:classappend="${#fields.hasErrors('altura')} ? 'is-invalid'">
+                <div th:errors="*{altura}" class="invalid-feedback"></div>
+			</div>
+			<div class="form-group">
+				<label for="fatorCubagem"> Fator de Cubagem: </label> <input
+					class="form-control" type="number"
+					th:field="*{fatorCubagem}"
+					th:classappend="${#fields.hasErrors('fatorCubagem')} ? 'is-invalid'">
+                <div th:errors="*{fatorCubagem}" class="invalid-feedback"></div>
+			</div>
 			
 			<button type="submit" class="btn btn-primary">
                 <span th:text="${caminhao.id != null} ? 'Atualizar' : 'Cadastrar'"></span>
             </button>
-             <a th:href="@{/caminhoes}" class="btn btn-secondary">Cancelar</a>
+             <a th:href="@{/caminhao}" class="btn btn-secondary">Cancelar</a>
 		</form>
 	</div>
 	<div th:replace="~{fragmentos/footer :: footer}"></div>

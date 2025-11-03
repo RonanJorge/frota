@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import jakarta.persistence.EntityNotFoundException;
 import jakarta.transaction.Transactional;
 import jakarta.validation.Valid;
 
@@ -24,13 +25,14 @@ public class MarcaController {
 		model.addAttribute("lista",marcaService.procurarTodos() );
 		return "marca/listagem";              
 	} 
-	@GetMapping ("/formulario")             
+	@GetMapping("/formulario")
 	public String carregaPaginaFormulario(Long id, Model model) {
-		if(id != null) {
-			var marca =marcaService.procurarPorId(id);
-			model.addAttribute("marca", marca);
-		}
-		return "marca/formulario";     
+	    if (id != null) {
+	        var marca = marcaService.procurarPorId(id)
+	                                 .orElseThrow(() -> new EntityNotFoundException("Marca não encontrada"));
+	        model.addAttribute("marca", marca);
+	    }
+	    return "marca/formulario";
 	}
 	@DeleteMapping
 	@Transactional

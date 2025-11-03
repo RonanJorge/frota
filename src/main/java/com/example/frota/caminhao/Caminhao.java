@@ -37,6 +37,10 @@ public class Caminhao {
 	private String placa;
 	private double cargaMaxima;
 	private int ano;
+	private double comprimento;
+	private double largura;
+	private double altura;
+	private double fatorCubagem;
 
 	public Caminhao(CadastroCaminhao dados, Marca marca) {
 		this.modelo = dados.modelo();
@@ -44,6 +48,10 @@ public class Caminhao {
 		this.cargaMaxima = dados.cargaMaxima();
 		this.marca = marca;
 		this.ano= dados.ano();
+		this.comprimento = dados.comprimento();
+		this.largura = dados.largura();
+		this.altura = dados.altura();
+		this.fatorCubagem = dados.fatorCubagem();
 	}
 	public Caminhao(AtualizacaoCaminhao dados, Marca marca) {
 		this.modelo = dados.modelo();
@@ -51,6 +59,10 @@ public class Caminhao {
 		this.cargaMaxima = dados.cargaMaxima();
 		this.marca = marca;
 		this.ano= dados.ano();
+		this.comprimento = dados.comprimento();
+		this.largura = dados.largura();
+		this.altura = dados.altura();
+		this.fatorCubagem = dados.fatorCubagem();
 	}
 	
 	public void atualizarInformacoes(AtualizacaoCaminhao dados, Marca marca) {
@@ -64,6 +76,14 @@ public class Caminhao {
 			this.marca = marca;
 		if (dados.ano() != 0)
 			this.ano = dados.ano();
+		if (dados.comprimento() != 0)
+			this.comprimento = dados.comprimento();
+		if (dados.largura() != 0)
+			this.largura = dados.largura();
+		if (dados.altura() != 0)
+			this.altura = dados.altura();
+		if (dados.fatorCubagem() != 0)
+			this.fatorCubagem = dados.fatorCubagem();
 	}
 	
 }
