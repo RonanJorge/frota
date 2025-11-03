@@ -30,8 +30,8 @@ public class Marca {
 	private String pais;
 	
 	public Marca(DadosCadastroMarca dados) {
-		this.nome=dados.nome();
-		this.pais= dados.pais();
+		this.nome =dados.nome();
+		this.pais = dados.pais();
 	}
 	
 	public void atualizarInformacoes(@Valid DadosAtualizacaoMarca dados) {

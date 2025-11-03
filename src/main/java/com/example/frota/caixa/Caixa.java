@@ -6,6 +6,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
@@ -29,6 +30,21 @@ public class Caixa {
 	private int altura;
 	private int largura;
 	private int comprimento;
-	private String material;
-
+	private double limitePeso;
+	
+	public Caixa(CadastroCaixa dados) {
+		this.altura = dados.altura();
+		this.largura = dados.largura();
+		this.comprimento = dados.comprimento();
+		this.limitePeso = dados.limitePeso();
+	}
+	
+	public void atualizarInformacoes(@Valid AtualizacaoCaixa dados) {
+		if (dados.altura() != null) {
+			this.altura = dados.altura();
+			this.largura = dados.largura();
+			this.comprimento = dados.comprimento();
+			this.limitePeso = dados.limitePeso();
+		}
+	}
 }

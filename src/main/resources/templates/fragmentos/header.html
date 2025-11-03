@@ -33,7 +33,13 @@
 							Marca
 					</a></li>
 					
-					<!-- Dropdown de Marcas -->
+					<li class="nav-item"><a class="nav-link"
+						th:classappend="${activePage == 'caixa'} ? 'active' : ''"
+						th:href="@{/caixa}"> <i class="fas fa-box me-1"></i>
+							Caixa
+					</a></li>
+					
+					<!-- Dropdown de Marcas
 					<li class="nav-item dropdown">
 						<a class="nav-link dropdown-toggle" id="marcaDropdown"
 						role="button" data-bs-toggle="dropdown" aria-expanded="true"
@@ -51,7 +57,7 @@
 								th:href="@{/marca/formulario}"> <i class="fas fa-star me-1"></i> Cadastrar Marca
 							</a></li>
 						</ul>
-					</li>
+					</li>-->
 				</ul>
 
 				<div class="d-flex align-items-center">

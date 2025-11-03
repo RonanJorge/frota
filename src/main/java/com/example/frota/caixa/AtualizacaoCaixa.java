@@ -1,5 +1,13 @@
 package com.example.frota.caixa;
 
-public record AtualizacaoCaixa() {
+import jakarta.validation.constraints.NotNull;
+
+public record AtualizacaoCaixa(
+		@NotNull
+		Long id,
+		Integer altura,
+		Integer largura,
+		Integer comprimento,
+		Double limitePeso) {
 
 }
