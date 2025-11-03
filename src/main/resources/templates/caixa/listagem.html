@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{fragmentos/head :: head('Listagem Caixas')}"></head>
+<body>
+<header th:replace="~{fragmentos/header :: header(activePage='caixa')}"></header>
+    <div class="container-fluid" style="max-width: 900px; margin: 0 auto;">
+    <h1 class="text-center"> Lista de Caixas</h1>
+    <a href="/caixa/formulario">Cadastrar nova caixa</a>
+    <div>
+    <table class="table table-hover table-responsive-xl">
+        <thead class="thead-light">
+            <tr>
+                <th>Altura</th>
+                <th>Largura</th>
+                <th>Comprimento</th>
+                <th>Limite de Peso</th>
+                <th>Ações</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="caixa : ${lista}">
+                <td th:text="${caixa.altura}"></td>
+                <td th:text="${caixa.largura}"></td>
+                <td th:text="${caixa.comprimento}"></td>
+                <td th:text="${caixa.limitePeso}"></td>
+                 
+                <td>
+					<a th:href="@{/caixa/formulario?id={id}(id=${caixa.id})}"><button>Editar</button></a> 
+					
+					<form action="/caixa" method="post">
+						<input type="hidden" name="_method" value="delete">
+						<input type="hidden" name="id" th:value="${caixa.id}">
+						<input type="submit" value="Excluir">
+					</form>
+				</td>
+            </tr>
+        </tbody>
+    </table>
+    </div>
+    </div>
+    <div th:replace="fragmentos/footer :: footer"></div>
+</body>
+</html>

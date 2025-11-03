@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang ="en" xmlns:th="http://thymeleaf.org" >
+<head th:replace="~{fragmentos/head :: head('Cadastro Caixa')}"></head>
+<body>
+<header th:replace="~{fragmentos/header :: header(activePage='caixa')}"></header>
+	<h1 class="text-center">Cadastro Caixa</h1>
+	<table class="table table-hover table-responsive-xl">
+	<tbody>
+	<td>
+		<form method="post" action="/caixa">
+			<input type="hidden" name="_method" value="put" th:if="${caixa!= null}">
+			<input type="hidden" name="id" th:value="${caixa?.id}">
+			
+			<div>
+				<label for="altura"> Altura: </label>
+				<input type="number" id="altura" name="altura" th:value="${caixa?.altura}">
+			</div>
+			
+			<div>
+				<label for="largura"> Largura: </label>
+				<input type="number" id="largura" name="largura" th:value="${caixa?.largura}">
+			</div>
+			
+			<div>
+				<label for="comprimento"> Comprimento: </label>
+				<input type="number" id="comprimento" name="comprimento" th:value="${caixa?.comprimento}">
+			</div>
+			
+			<div>
+				<label for="limitePeso"> Limite de Peso: </label>
+				<input type="number" id="limitePeso" name="limitePeso" th:value="${caixa?.limitePeso}">
+			</div>
+			
+			<input type="submit" value="Cadastrar">
+		</form>
+	</td>
+	</tbody>
+	</table>
+	<div th:replace="fragmentos/footer :: footer"></div>
+</body>
+</html>
